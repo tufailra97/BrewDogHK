@@ -24,11 +24,7 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-            <Route exact path = {'/'} component = {()=> {
-              return <Redirect to ='/home' />
-            }}/>
-            <Route exact path = {'/home'} component = {Home}/>
-            <Route path = {'*'} component = {ErrorPage}/>
+            <Route exact path = {'/'} component = {Home}/>
           </Switch>
           <Footer/>
         </div>
