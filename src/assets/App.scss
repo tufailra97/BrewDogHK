@@ -1,0 +1,467 @@
+/*
+  =========================================
+    Author : Tufail Rahman
+    Date: 29/07/2018
+  =========================================
+*/
+
+
+/*
+  ===================================
+  import reset
+  ===================================
+*/ 
+@import 'reset.scss';
+
+
+/*
+  ===================================
+    import font to use in the app
+    and assign to variable
+  ===================================
+*/ 
+
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto'); 
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins|Ubuntu');
+
+$oswald : 'Oswald', sans-serif;
+$roboto : 'Roboto', sans-serif;
+$montserrat : 'Montserrat', sans-serif;
+$poppins : 'Poppins', sans-serif;
+
+
+/*
+  ===================================
+    General classes to use across the 
+    app 
+  ===================================
+*/
+
+//general wrapper with max width set 
+//to 1333px
+.wrapper {
+  margin: 0 auto;
+  max-width: 1333px;
+}
+
+/*
+  ===================================
+    Header 
+  ===================================
+*/
+
+#header  {
+  width: 100%;
+  background-color: rgb(241, 240, 240);
+
+  //wrapper
+  .wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  //responsive button 
+  .res-button {
+    display: none;
+  }
+
+
+  //logo
+  #logo {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    
+    h1{
+      margin-left: 20px;
+      font-family: $oswald;
+      font-size: 30px;
+      color: black;
+      font-weight: 700;
+    }
+
+    img{
+      width: 50px;
+      height: auto;
+    }
+  }
+
+  //navigation bar
+  nav {
+    ul{
+      display: flex;
+      align-items: center;
+
+      li{     
+        margin-right: 20px; 
+
+        a{
+          font-size: 18px;
+          font-family: $oswald;
+          color: black;
+          text-decoration: none;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          padding-bottom: 5px;
+          
+          &:hover {
+            color: brown;
+            transition : all 0.5s ease;
+          }
+          
+        }
+        .active {
+          color: brown;
+          transition: all 1s ease-in-out;
+        }
+      }
+    }
+  }
+
+}
+
+/*
+  ===================================
+    Results 
+  ===================================
+*/
+
+#results {
+  padding-top: 5px;
+
+  .loader-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-top: 20px;
+    align-items: center;
+  }
+  .loader {
+    border: 6px solid #dbdbdb; /* Light grey */
+    border-top: 6px solid #191f24; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+  }
+
+  .wrapper {
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-family: $roboto;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .search-results{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+  }
+
+  .item {
+    padding: 10px 0;
+    border-radius: 3px;
+    width: 19%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+
+    &:hover {
+      background-color: rgba(209, 209, 209, 0.593);
+    }
+
+    img{
+      margin: 0 auto;
+      max-width: 100%;
+      height: 450px;
+    }
+
+    h2 {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 18px;
+      font-family: $oswald;
+      font-weight: 600;
+    }
+  }
+}
+
+
+/*
+  ===================================
+    Modal 
+  ===================================
+*/
+
+#modal {
+  .close-button{
+    text-align: end;
+    button {
+      border: none;
+      background-color: Transparent;
+      font-size: 30px;
+      margin: 20px;
+      outline: none;
+
+      span{
+        color: #191f24;
+        &:hover {
+          color: firebrick;
+        }
+      }
+    }
+  }
+}
+
+.modal-open {
+  display: block;
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(202, 202, 202, 0.655);
+  z-index: 1000;
+  transition: all 1s ease; 
+}
+
+.modal-close {
+  display: none;
+}
+
+.modal-body {
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 70vw;
+  height: 75vh;
+  overflow: auto;
+  background-color: rgb(248, 248, 248);
+  display: flex;
+
+  .modal-media{
+    width: 40%;
+    text-align: center;
+
+    img{
+      margin: 0 auto;
+      max-height: 500px;
+    }
+  }
+
+  .modal-desc {
+    width: 60%;
+    .first {
+      border-bottom: 2px solid rgb(216, 216, 216);
+      h1 {
+        font-size: 40px;
+        font-family: $oswald;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+  
+      h2{
+        font-size: 18px;
+        font-style: italic;
+        font-family: $oswald;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+    }
+    .desc {
+      margin: 15px 0;
+      h2{
+        font-size: 20px;
+        font-weight: 600;
+        font-family: $oswald;
+        margin-bottom: 8px;
+      }
+      p{
+        font-size: 16px;
+        line-height: 25px;
+        font-weight: 500;
+        font-family: $poppins;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    th, td {
+      border : 1px solid rgb(222, 222, 222);
+      text-align: center;
+      font-family: $oswald;
+      padding: 10px;
+    }
+    th {
+      padding: 10px;
+      width: 33%;
+      color: white;
+      background-color: rgb(34, 25, 25); 
+    }
+
+    tr {
+      &:nth-child(even) {
+        background-color: #eaeaea;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+
+footer {
+  height: auto;
+  
+  div:first-child {
+    background-color: #191f24;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      padding: 30px;
+      font-size: 30px;
+      color: white;
+      
+      span {
+        font-family: $oswald;
+      }
+    }
+  }
+
+  div {
+    &:last-child {
+      line-height: 36px;
+      background-color: black;
+
+      p{
+        padding-right: 20px;
+        font-size: 14px;
+        text-align: end;
+        color: white;
+        font-family: $roboto;
+      }
+    }
+  }
+}
+
+
+
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+//media query
+
+@media screen and (max-width: 1100px) {
+  #header{
+    .wrapper {
+      margin: 0 auto;
+      width: 90%;
+      display: block;
+    }
+
+    .res-wrapper {
+      margin: 5px 0;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    #logo{
+      img {
+        width: 45px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+
+    .res-button {
+      display: block;
+
+      button {
+        border: none;
+        padding: 5px 10px; 
+        font-size: 25px;
+        outline: none;
+        transition: all 1s ease;
+        &:hover {
+          background-color: #191f24;
+          color: white;
+        }
+      }
+    }
+
+
+    nav ul {
+      display: block;
+      margin-top: 20px;
+
+      li {
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        
+        &:hover {
+          background-color: rgb(222, 222, 222);
+        }
+      }
+      
+    }
+
+    .show-menu {
+      display: block;
+    }
+    .hide-menu {
+      display: none;
+    }
+  }
+
+  #results {
+    .search-results{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+  
+    }
+  
+    .item {
+      width: 49%;
+  
+    }
+  }
+
+ .modal-body {
+    width: 90vw;
+    height: 75vh;
+    display: block;
+  
+    .modal-media{
+      width: 100%;
+    }
+  
+    .modal-desc {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+}
