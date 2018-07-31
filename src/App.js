@@ -20,7 +20,7 @@ import Footer from './components/Footer';
 class App extends Component {
   render() {
     return (
-      <Router> 
+      <Router basename = {process.env.PUBLIC_URL}> 
         <div>
           <Header />
           <Switch>
