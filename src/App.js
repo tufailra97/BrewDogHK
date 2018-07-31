@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Redirect,
   Switch,
@@ -24,7 +24,11 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-            <Route exact path = {'/'} component = {Home}/>
+            <Route exact path = '/' component = {()=> {
+              return <Redirect to = '/home' /> 
+            }} />
+            <Route exact path = {'/home'} component = {Home}/>
+            <Route path = {'*'} component = {Error}/>
           </Switch>
           <Footer/>
         </div>
