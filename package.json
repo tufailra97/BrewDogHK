@@ -1,6 +1,7 @@
 {
   "name": "hq-api-req",
   "version": "0.1.0",
+  "homepage": "http://tufailra97.github.io/BrewDogHK",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -49,7 +50,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"  
   },
   "jest": {
     "collectCoverageFrom": [
@@ -94,6 +97,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "gh-pages": "^1.2.0",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3"
   }
