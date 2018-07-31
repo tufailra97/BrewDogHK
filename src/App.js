@@ -28,7 +28,7 @@ class App extends Component {
               return <Redirect to = '/home' /> 
             }} />
             <Route exact path = {'/home'} component = {Home}/>
-            <Route path = {'*'} component = {Error}/>
+            <Route path = {'*'} component = {ErrorPage}/>
           </Switch>
           <Footer/>
         </div>

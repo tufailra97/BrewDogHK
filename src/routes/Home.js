@@ -16,7 +16,6 @@ class Home extends Component {
     fetch('https://api.punkapi.com/v2/beers?page=1&per_page=80&brewed_after=12-2014&abv_gt=5&abv_lt=11')
     .then(res => res.json())
     .then((data) => {
-      console.log(data);
       this.setState({
         data : data
       });
@@ -27,7 +26,6 @@ class Home extends Component {
     const { hops, malt } = i;
     let showIngredients;
 
-    console.log('holt and malt', hops, malt);
     
     if(hops.length > 1){
       showIngredients = hops.map((e, index) => {
